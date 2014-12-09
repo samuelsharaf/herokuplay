@@ -27,10 +27,10 @@ public class Application extends Controller {
 ///////////
 	try {
         
-		
+		String rand = new Integer(new Random().nextInt())toString();
 		Connection connection = getConnection();
       	Statement stmt = connection.createStatement();
-		String query = "insert into public.hellonames (ID, Name) values(" + new Random().intValue(100) + ","  + myName + ")";
+		String query = "insert into public.hellonames (ID, Name) values(" + rand + ","  + myName + ")";
 		stmt.executeQuery();
 	}
 		
