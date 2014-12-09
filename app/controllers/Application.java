@@ -22,6 +22,7 @@ public class Application extends Controller {
 	public static void sayHello(String myName) {
 
         render(myName);
+		System.out.println("--------In try " + myName);
 ///////////
 	try {
         
