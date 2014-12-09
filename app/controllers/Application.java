@@ -22,7 +22,7 @@ public class Application extends Controller {
     
 	public static void sayHello(String myName) {
 
-        
+        render(myName);
 		
 ///////////
 	try {
@@ -30,21 +30,23 @@ public class Application extends Controller {
 		
 		Connection connection = getConnection();
       	Statement stmt = connection.createStatement();
+		String query = "insert into public.hellonames (ID, Name) values(" + new Random().intValue() + ","  + myName + ")";
+		stmt.executeQuery();
+		
 		//String query = "";
 		//int rowID = stmt.executeUpdate("Select count(*) from public.hellonames");
       	//stmt.executeQuery(query);
-      	ResultSet rs = stmt.executeQuery("SELECT * FROM public.hellonames");
-		//ResultSet rs = stmt.executeQuery("insert into public.hellonames (ID, Name) values(" + new Random().intValue() + ","  + myName + ")"");
-      	String out = "Hello! ";
-      
+      	//ResultSet rs = stmt.executeQuery("SELECT * FROM public.hellonames");
+		/*
+
+      	String out = "Hello!\n";
 	  	while (rs.next()) {
-          	myName += "\n" + "Read from DB: " + rs.getString(2);
-			// + "\n";
+          	out += "Read from DB: " + rs.getString(2) + "\n";
 			
       	}
 		render(myName);
       
-    	} 
+    	} */
 		catch (Exception e) {
       	  //resp.getWriter().print("There was an error: " + e.getMessage());
 			e.printStackTrace();
