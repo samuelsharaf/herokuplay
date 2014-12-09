@@ -18,11 +18,12 @@ public class Application extends Controller {
     public static void index() {
         render();
     }
-    public static void sayHello(String myName) {
+    
+	public static void sayHello(String myName) {
 
         render(myName);
 ///////////
-try {
+	try {
         Connection connection = getConnection();
 
       Statement stmt = connection.createStatement();
@@ -42,12 +43,13 @@ try {
   }
 
 
-//////////
 
-    }
+
+    
 	
     public static Connection getConnection() throws URISyntaxException, SQLException {
-    	URI dbUri = new URI(System.getenv("DATABASE_URL"));
+    	
+		URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
     	String username = dbUri.getUserInfo().split(":")[0];
     	String password = dbUri.getUserInfo().split(":")[1];
@@ -56,24 +58,5 @@ try {
     	return DriverManager.getConnection(dbUrl, username, password);
      }
 
-    private void showDatabase(HttpServletRequest req, HttpServletResponse resp)
-      throws ServletException, IOException {
-    	try {
-      	Connection connection = getConnection();
-
-      Statement stmt = connection.createStatement();
-      stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-      stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-      ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-
-      String out = "Hello!\n";
-      while (rs.next()) {
-          out += "Read from DB: " + rs.getTimestamp("tick") + "\n";
-      }
-
-      resp.getWriter().print(out);
-    } catch (Exception e) {
-      resp.getWriter().print("There was an error: " + e.getMessage());
-    }
-  }
+    
 }
