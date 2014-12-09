@@ -41,7 +41,7 @@ public class Application extends Controller {
           	out += "Read from DB: " + rs.getString(2) + "\n";
 			
       	}
-				render(out);
+		render(myName);
       
     	} 
 		catch (Exception e) {
