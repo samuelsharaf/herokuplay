@@ -36,9 +36,10 @@ public class Application extends Controller {
           out += "Read from DB: " + rs.getTimestamp("tick") + "\n";
       }
 
-      resp.getWriter().print(out);
+      
     } catch (Exception e) {
-      resp.getWriter().print("There was an error: " + e.getMessage());
+      //resp.getWriter().print("There was an error: " + e.getMessage());
+	  e.printStackTrace();
     }
   }
 
