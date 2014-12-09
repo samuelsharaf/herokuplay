@@ -33,8 +33,8 @@ public class Application extends Controller {
 		//String query = "";
 		//int rowID = stmt.executeUpdate("Select count(*) from public.hellonames");
       	//stmt.executeQuery(query);
-      	ResultSet rs = stmt.executeQuery("SELECT * FROM public.hellonames");
-	  
+      	//ResultSet rs = stmt.executeQuery("SELECT * FROM public.hellonames");
+		ResultSet rs = stmt.executeQuery("insert into public.hellonames (ID, Name) values(" + new Random().intValue() + ","  + myName + ")"");
       	String out = "Hello!\n";
       
 	  	while (rs.next()) {
