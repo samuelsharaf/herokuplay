@@ -38,7 +38,7 @@ public class Application extends Controller {
       	String out = "Hello!\n";
       
 	  	while (rs.next()) {
-          	out += "Read from DB: " + rs.getString(2) + "\n";
+          	out += "Read from DB: " + rs.getString() + "\n";
 			//render(out);
       	}
 				render(myName + out);
