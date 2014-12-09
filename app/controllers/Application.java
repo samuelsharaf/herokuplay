@@ -48,7 +48,7 @@ public class Application extends Controller {
       	  //resp.getWriter().print("There was an error: " + e.getMessage());
 			e.printStackTrace();
     	}
-		rs.close();
+		
 		
 
   }
