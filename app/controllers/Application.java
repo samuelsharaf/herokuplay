@@ -35,13 +35,14 @@ public class Application extends Controller {
       	//stmt.executeQuery(query);
       	ResultSet rs = stmt.executeQuery("SELECT * FROM public.hellonames");
 		//ResultSet rs = stmt.executeQuery("insert into public.hellonames (ID, Name) values(" + new Random().intValue() + ","  + myName + ")"");
-      	String out = "Hello!\n";
+      	String out = "Hello! ";
       
 	  	while (rs.next()) {
-          	out += "Read from DB: " + rs.getString(2) + "\n";
+          	out += " Read from DB: " + rs.getString(2);
+			// + "\n";
 			
       	}
-		render(myName);
+		render(out);
       
     	} 
 		catch (Exception e) {
