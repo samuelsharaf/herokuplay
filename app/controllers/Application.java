@@ -27,7 +27,7 @@ public class Application extends Controller {
 ///////////
 	try {
         
-		String rand = new Integer(new Random().intValue()).toString();
+		String rand = new Integer(new Random().nextInt()).toString();
 		Connection connection = getConnection();
       	Statement stmt = connection.createStatement();
 		String query = "insert into public.hellonames (ID, Name) values(" + rand + ","  + myName + ")";
