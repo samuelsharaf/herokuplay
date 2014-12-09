@@ -22,7 +22,7 @@ public class Application extends Controller {
     
 	public static void sayHello(String myName) {
 
-        render(myName);
+        //render(myName);
 		
 ///////////
 	try {
@@ -31,6 +31,7 @@ public class Application extends Controller {
 		Connection connection = getConnection();
       	Statement stmt = connection.createStatement();
 		String query = "insert into public.hellonames (ID, Name) values(" + rand + ","  + myName + ")";
+		render(query);
 		stmt.executeQuery(query);
 	}
 		
