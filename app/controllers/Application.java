@@ -32,7 +32,7 @@ public class Application extends Controller {
       	Statement stmt = connection.createStatement();
 
 		//String query = "insert into public.hellonames (ID, Name) values(" + rand + ","  + myName + ")";
-		String query = "insert into public.hellonames (ID, Name) values(3, 'Greg')";
+		String query = "insert into public.hellonames (ID, Name) values('7', 'Tim')";
 		stmt.executeQuery(query);
 	}
 		
