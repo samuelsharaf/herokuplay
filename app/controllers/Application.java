@@ -39,15 +39,16 @@ public class Application extends Controller {
       
 	  	while (rs.next()) {
           	out += "Read from DB: " + rs.getString(2) + "\n";
-			//render(out);
+			
       	}
-				render(myName);
+				render(out);
       
     	} 
 		catch (Exception e) {
       	  //resp.getWriter().print("There was an error: " + e.getMessage());
 			e.printStackTrace();
     	}
+		rs.close();
 		
 
   }
