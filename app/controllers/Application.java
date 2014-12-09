@@ -32,6 +32,7 @@ public class Application extends Controller {
       	Statement stmt = connection.createStatement();
 		String query = "insert into public.hellonames (ID, Name) values(" + new Random().intValue() + ","  + myName + ")";
 		stmt.executeQuery();
+	}
 		
 		//String query = "";
 		//int rowID = stmt.executeUpdate("Select count(*) from public.hellonames");
