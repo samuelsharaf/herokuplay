@@ -19,7 +19,31 @@ public class Application extends Controller {
         render();
     }
     public static void sayHello(String myName) {
+
         render(myName);
+///////////
+try {
+        Connection connection = getConnection();
+
+      Statement stmt = connection.createStatement();
+      stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
+      stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+      ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+
+      String out = "Hello!\n";
+      while (rs.next()) {
+          out += "Read from DB: " + rs.getTimestamp("tick") + "\n";
+      }
+
+      resp.getWriter().print(out);
+    } catch (Exception e) {
+      resp.getWriter().print("There was an error: " + e.getMessage());
+    }
+  }
+
+
+//////////
+
     }
 	
     private Connection getConnection() throws URISyntaxException, SQLException {
