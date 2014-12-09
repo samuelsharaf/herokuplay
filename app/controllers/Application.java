@@ -7,8 +7,6 @@ import java.util.*;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
-import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.servlet.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.*;
