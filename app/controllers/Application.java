@@ -24,23 +24,26 @@ public class Application extends Controller {
         render(myName);
 ///////////
 	try {
-        Connection connection = getConnection();
+        
+		Connection connection = getConnection();
 
-      Statement stmt = connection.createStatement();
-      stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-      stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-      ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-
-      String out = "Hello!\n";
-      while (rs.next()) {
-          out += "Read from DB: " + rs.getTimestamp("tick") + "\n";
-      }
+      	Statement stmt = connection.createStatement();
+        System.out.println("--------In try " + stmt);
+	  	stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
+      	stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+      	ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+	  
+      	String out = "Hello!\n";
+      
+	  	while (rs.next()) {
+          	out += "Read from DB: " + rs.getTimestamp("tick") + "\n";
+      	}
 
       
-    } catch (Exception e) {
-      //resp.getWriter().print("There was an error: " + e.getMessage());
-	  e.printStackTrace();
-    }
+    	} catch (Exception e) {
+      	  //resp.getWriter().print("There was an error: " + e.getMessage());
+	  	e.printStackTrace();
+    	}
   }
 
 
