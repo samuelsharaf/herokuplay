@@ -30,7 +30,7 @@ public class Application extends Controller {
 		
 		Connection connection = getConnection();
       	Statement stmt = connection.createStatement();
-		String query = "insert into public.hellonames (ID, Name) values(" + new Random().intValue() + ","  + myName + ")";
+		String query = "insert into public.hellonames (ID, Name) values(" + new Random().intValue(100) + ","  + myName + ")";
 		stmt.executeQuery();
 	}
 		
