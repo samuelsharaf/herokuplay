@@ -21,23 +21,25 @@ public class Application extends Controller {
     
 	public static void sayHello(String myName) {
 
-        render(myName);
-		System.out.println("--------In try " + myName);
+        
+		
 ///////////
 	try {
         
 		Connection connection = getConnection();
 
       	Statement stmt = connection.createStatement();
-        System.out.println("--------In try " + stmt);
-	  	stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-      	stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-      	ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+        
+	  	//stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
+		int rowID = stmt.executeUpdate("Select count(*) from public.hellonames");
+      	stmt.executeUpdate("INSERT INTO public.hellonames(ID, Name) VALUES (rowID+1, myName)");
+      	ResultSet rs = stmt.executeQuery("SELECT * FROM public.hellonames");
 	  
       	String out = "Hello!\n";
       
 	  	while (rs.next()) {
-          	out += "Read from DB: " + rs.getTimestamp("tick") + "\n";
+          	out += "Read from DB: " + rs.getString(2) + "\n";
+			render(out);
       	}
 
       
@@ -45,6 +47,8 @@ public class Application extends Controller {
       	  //resp.getWriter().print("There was an error: " + e.getMessage());
 	  	e.printStackTrace();
     	}
+		
+		
   }
 
 
