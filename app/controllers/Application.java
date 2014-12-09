@@ -22,7 +22,7 @@ public class Application extends Controller {
     
 	public static void sayHello(String myName) {
 
-        //render(myName);
+        
 		
 ///////////
 	try {
@@ -31,8 +31,8 @@ public class Application extends Controller {
 		Connection connection = getConnection();
       	Statement stmt = connection.createStatement();
 
-		String query = "insert into public.hellonames (ID, Name) values(" + rand + ","  + myName + ")";
-		render(query);
+		//String query = "insert into public.hellonames (ID, Name) values(" + rand + ","  + myName + ")";
+		String query = "insert into public.hellonames (ID, Name) values("3", "Greg")";
 		stmt.executeQuery(query);
 	}
 		
@@ -55,7 +55,7 @@ public class Application extends Controller {
 			e.printStackTrace();
     	}
 		
-		
+		render(myName);
 
   }
 
