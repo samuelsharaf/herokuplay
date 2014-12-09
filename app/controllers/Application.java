@@ -12,6 +12,7 @@ import java.net.URISyntaxException;
 import java.sql.*;
 
 import models.*;
+import java.util.Random;
 
 public class Application extends Controller {
 
@@ -26,13 +27,12 @@ public class Application extends Controller {
 ///////////
 	try {
         
+		
 		Connection connection = getConnection();
-
       	Statement stmt = connection.createStatement();
-        
-	  	//stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-		int rowID = stmt.executeUpdate("Select count(*) from public.hellonames");
-      	stmt.executeUpdate("INSERT INTO public.hellonames(ID, Name) VALUES (rowID+1, myName)");
+		String query = "INSERT INTO public.hellonames(ID, Name) VALUES (" + new Random().nextInt(100) + "," + myName + ")";
+		//int rowID = stmt.executeUpdate("Select count(*) from public.hellonames");
+      	stmt.executeQuery(query);
       	ResultSet rs = stmt.executeQuery("SELECT * FROM public.hellonames");
 	  
       	String out = "Hello!\n";
