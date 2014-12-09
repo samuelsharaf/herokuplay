@@ -38,11 +38,11 @@ public class Application extends Controller {
       	String out = "Hello! ";
       
 	  	while (rs.next()) {
-          	out += " Read from DB: " + rs.getString(2);
+          	myName += " Read from DB: " + rs.getString(2);
 			// + "\n";
 			
       	}
-		render(out);
+		render(myName);
       
     	} 
 		catch (Exception e) {
