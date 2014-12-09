@@ -30,8 +30,8 @@ public class Application extends Controller {
 		String rand = new Integer(new Random().nextInt()).toString();
 		Connection connection = getConnection();
       	Statement stmt = connection.createStatement();
-		String query = "";
-		String query += "insert into public.hellonames (ID, Name) values(" + rand + ","  + myName + ")";
+
+		String query = "insert into public.hellonames (ID, Name) values(" + rand + ","  + myName + ")";
 		render(query);
 		stmt.executeQuery(query);
 	}
