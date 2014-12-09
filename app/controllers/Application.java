@@ -30,9 +30,9 @@ public class Application extends Controller {
 		
 		Connection connection = getConnection();
       	Statement stmt = connection.createStatement();
-		String query = "INSERT INTO public.hellonames(ID, Name) VALUES (" + new Random().nextInt(100) + "," + myName + ")";
+		//String query = "";
 		//int rowID = stmt.executeUpdate("Select count(*) from public.hellonames");
-      	stmt.executeQuery(query);
+      	//stmt.executeQuery(query);
       	ResultSet rs = stmt.executeQuery("SELECT * FROM public.hellonames");
 	  
       	String out = "Hello!\n";
